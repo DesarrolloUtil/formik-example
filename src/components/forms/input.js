@@ -1,17 +1,16 @@
+import { Field, useField } from "formik";
 import React from "react";
 
-const Input = ({ placeholder, type = "text", className = "", ...props }) => (
-  <label
-    className={`flex flex-col justify-items-start items-start ${className}`}
-  >
-    <span className="w-full text-gray-500 ml-2">{placeholder}</span>
-    <input
-      className="border border-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-600"
-      type={type}
-      name={name}
-      {...props}
-    ></input>
-  </label>
-);
+const Input = ({ placeholder, type = "text", name, ...props }) => {
+  const [field, meta, helpers] = useField(name);
+
+  return (
+    <label className="flexcol-s-s label">
+      <span className="placeholder">{placeholder}</span>
+      <Field className="input" type={type} name={name} {...props} />
+      {meta.error}
+    </label>
+  );
+};
 
 export default Input;

@@ -7,19 +7,8 @@ const Header = () => {
   const username = authState ? authState.user.username : undefined;
 
   return (
-    <header className="flex-s-c w-full h-4 shadow-md px-2">
-      <LogoIcon className="h-3" />
-      {username && (
-        <div className="flex-c-c">
-          <span className="text-16 font-semibold text-gray-700">
-            {username}
-          </span>
-          <img
-            className="inline w-2_25 h-2_25 mx-1 rounded-full"
-            src={`https://avatars.dicebear.com/api/initials/${username}.svg`}
-          />
-        </div>
-      )}
+    <header className="flex-s-c header">
+      <LogoIcon className="logo" />
     </header>
   );
 };
